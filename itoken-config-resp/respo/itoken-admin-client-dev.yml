@@ -1,0 +1,13 @@
+spring: #服务健康检测通用配置
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: itoken-service-posts itoken-admin-clinet itoken-common-service itoken-eureka-client itoken-redis-client  itoken-zipkin-client
+      label: master
+      profile: dev

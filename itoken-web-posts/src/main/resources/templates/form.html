@@ -1,0 +1,75 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>iToken - 文章管理</title>
+    <th:block th:include="includes/head :: head"></th:block>
+    <link rel="stylesheet" th:href="@{{adminlte}/plugins/dropzone/dropzone.css(adminlte=${adminlte})}" />
+    <link rel="stylesheet" th:href="@{{adminlte}/plugins/dropzone/min/basic.min.css(adminlte=${adminlte})}" />
+    <link rel="stylesheet" th:href="@{{adminlte}/plugins/wangEditor/wangEditor.min.css(adminlte=${adminlte})}" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+        <section class="content-header">
+            <h1>
+                用户管理
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="https://adminlte.io/themes/AdminLTE/index2.html#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li class="active">控制面板</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- Horizontal Form -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title" th:value="${tbPostsPost == null && tbPostsPost.postGuid == null? '新增用户':'修改用户'}"></h3>
+                        </div>
+                    <!-- form start -->
+                    <form action="/save" class="form-horizontal" method="post" th:object="${tbPostsPost}">
+                        <input type="hidden" th:value="*{postGuid}" >
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="title" class="col-sm-2 control-label">标题</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control required" id="title" name="title" th:value="*{title}"  placeholder="请输入邮箱地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">封面缩略图片</label>
+
+                            <div class="col-sm-10">
+                                <input id="thumbImage" name="thumbImage" class="form-control" placeholder="封面缩略图片" />
+                                <div id="dropz" class="dropzone"></div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="button" class="btn btn-default" onclick="history.go(-1)">撤销</button>
+                            <button id="tagmodaltbn" type="submit" class="btn btn-info pull-right">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<th:block th:include="includes/foot :: foot"></th:block>
+<script th:src="@{{adminlte}/plugins/dropzone/min/dropzone.min.js(adminlte=${adminlte})}"></script>
+<script th:src="@{{adminlte}/plugins/wangEditor/wangEditor.min.js(adminlte=${adminlte})}"></script>
+
+<script>
+    App.initDropzone({
+        id: "#dropz",
+        url: "http://localhost:8505/upload",
+        init: function () {
+            this.on("success", function (file, data) {
+                $("#thumbImage").val(data.fileName);
+            });
+        }
+    });
+</script>
+</body>
+</html>

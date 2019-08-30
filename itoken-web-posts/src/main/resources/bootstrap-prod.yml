@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://192.168.161.140:8888
+      name: itoken-eureka-client, itoken-zipkin-client, itoken-admin-client, itoken-common-hosts，itoken-commmon-web
+      label: master
+      profile: prod

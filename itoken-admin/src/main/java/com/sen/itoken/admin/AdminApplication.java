@@ -1,0 +1,20 @@
+package com.sen.itoken.admin;
+
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+/**
+ * @Auther: Sen
+ * @Date: 2019/8/20 17:46
+ * @Description:
+ */
+@SpringBootApplication
+@EnableEurekaClient
+@EnableAdminServer
+public class AdminApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AdminApplication.class, args);
+    }
+}

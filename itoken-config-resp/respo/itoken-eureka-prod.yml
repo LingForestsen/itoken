@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: itoken-eureka
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: host
+  client:
+    registerWithEureka: true #需要部署集群，所以要把自己注册到eureka
+    fetchRegistry: true #需要部署集群，所以需要同步信息到其他eureka
+    serviceUrl:
+      defaultZone: http://192.168.161.140:8761/eureka/,http://192.168.161.140:8861/eureka/,http://192.168.161.140:8961/eureka/
