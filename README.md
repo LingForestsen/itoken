@@ -8,3 +8,4 @@ itoken
 - Spring Cloud Config实现分布式配置中心
 - ZipKin服务链路追踪
 - Spring Boot Admin健康检查
+- Swagger2 接口文档引擎
