@@ -28,7 +28,7 @@
         <zipkin.version>2.10.1</zipkin.version>
         <!-- Environment begin -->
         <druid.servion>1.1.10</druid.servion>
-        <mysql.version>5.1.46</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <tk.mybatis.version>2.0.2</tk.mybatis.version>
         <pagehelper.version>1.2.5</pagehelper.version>
         <guava.version>25.1-jre</guava.version>
